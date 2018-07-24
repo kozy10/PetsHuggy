@@ -8,8 +8,12 @@ Rails.application.routes.draw do
 
   resources :photos, only: [:create, :destroy] do
     collection do
-      get :listings
+      get :list  #listアクションのルーティング
     end
+  end
+
+  resources :listings do 
+    resources :reservations, only: [:create]
   end
 
   get 'manage-listing/:id/basics' => 'listings#basics', as: 'manage_listing_basics'

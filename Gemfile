@@ -4,7 +4,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.3.7'
 
 gem 'rails', '~> 5.2.0'
-gem 'sqlite3'
 gem 'sass-rails', '>= 3.2'
 gem 'puma', '~> 3.11'
 gem 'uglifier', '>= 1.3.0'
@@ -21,6 +20,18 @@ gem 'omniauth-facebook'
 gem "paperclip", "~> 6.0.0"
 gem 'dropzonejs-rails'
 gem 'figaro', '~> 1.1.0'
+gem 'geocoder'
+gem 'jquery-ui-rails'
+
+
+group :production do
+	gem 'pg'
+	gem 'rails_12factor'
+end
+
+group :development, :test do
+	gem 'sqlite3'
+end
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
